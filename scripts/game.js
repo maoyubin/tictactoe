@@ -73,6 +73,18 @@ var State = function(old) {
         for(var i = 0; i <= 6; i = i + 3) {
             if(B[i] !== "E" && B[i] === B[i + 1] && B[i + 1] == B[i + 2]) {
                 this.result = B[i] + "-won"; //update the state result
+
+                if(i==0){
+                    var topLeftAcross = $('.topLeftAcross');
+                    topLeftAcross.addClass("strike-show");
+                }else if(i==3){
+                    var middleLeftAcross = $('.middleLeftAcross');
+                    middleLeftAcross.addClass("strike-show");
+                }else if(i==6){
+                    var bottomLeftAcross = $('.bottomLeftAcross');
+                    bottomLeftAcross.addClass("strike-show");
+                }
+
                 return true;
             }
         }
@@ -81,6 +93,19 @@ var State = function(old) {
         for(var i = 0; i <= 2 ; i++) {
             if(B[i] !== "E" && B[i] === B[i + 3] && B[i + 3] === B[i + 6]) {
                 this.result = B[i] + "-won"; //update the state result
+                debugger
+                if(i==0){
+                    var topLeftDown = $('.topLeftDown');
+                    topLeftDown.addClass("strike-show");
+                }else if(i==1){
+                    var topMiddleDown = $('.topMiddleDown');
+                    topMiddleDown.addClass("strike-show");
+                }else if(i==2){
+                    var topRightDown = $('.topRightDown');
+                    topRightDown.addClass("strike-show");
+                }
+
+
                 return true;
             }
         }
@@ -89,6 +114,15 @@ var State = function(old) {
         for(var i = 0, j = 4; i <= 2 ; i = i + 2, j = j - 2) {
             if(B[i] !== "E" && B[i] == B[i + j] && B[i + j] === B[i + 2*j]) {
                 this.result = B[i] + "-won"; //update the state result
+
+                if(i==0){
+                    var topLeftDiagonal = $('.topLeftDiagonal');
+                    topLeftDiagonal.addClass("strike-show-left");
+                }else {
+                    var topRightDiagonal = $('.topRightDiagonal');
+                    topRightDiagonal.addClass("strike-show-right");
+                }
+
                 return true;
             }
         }
@@ -137,6 +171,7 @@ var Game = function(autoPlayer) {
     this.advanceTo = function(_state) {
         this.currentState = _state;
         if(_state.isTerminal()) {
+
             this.status = "ended";
 
             if(_state.result === "X-won")

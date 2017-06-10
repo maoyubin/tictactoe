@@ -69,9 +69,123 @@ body {
     top: 16.5%;
 }
 
+.end-strike.topRightDown {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 82%;
+}
+
+.end-strike.topLeftDown {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 17%;
+}
+
+.end-strike.topMiddleDown {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 49.5%;
+}
+
+.end-strike.middleLeftAcross {
+    width: 100%;
+    top: 49.5%;
+}
+
+.end-strike.bottomLeftAcross {
+    width: 100%;
+    top: 82%;
+}
+
+.end-strike.topLeftDiagonal {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 49.5%;
+}
+
+.end-strike.topRightDiagonal {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 49.3%;
+    transform: rotateZ(45deg) scale(1.2);
+}
+
+.strike-show-right {
+    -webkit-animation: scale-in-center-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.strike-show-left {
+    -webkit-animation: scale-in-center-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 .strike-show {
     -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes scale-in-center-right {
+  0% {
+    -webkit-transform: rotateZ(45deg) scale(0);
+            transform: rotateZ(45deg) scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateZ(45deg) scale(1.2);
+            transform: rotateZ(45deg) scale(1.2);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center-right {
+  0% {
+    -webkit-transform: rotateZ(45deg) scale(0);
+            transform: rotateZ(45deg) scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateZ(45deg) scale(1.2);
+            transform: rotateZ(45deg) scale(1.2);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes scale-in-center-left {
+  0% {
+    -webkit-transform: rotateZ(-45deg) scale(0);
+            transform: rotateZ(-45deg) scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateZ(-45deg) scale(1.2);
+            transform: rotateZ(-45deg) scale(1.2);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center-left {
+  0% {
+    -webkit-transform: rotateZ(-45deg) scale(0);
+            transform: rotateZ(-45deg) scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateZ(-45deg) scale(1.2);
+            transform: rotateZ(-45deg) scale(1.2);
+    opacity: 1;
+  }
 }
 
 
@@ -128,7 +242,7 @@ body {
 
 .start {
     position: relative;
-    margin: 40% auto 100px auto;
+    margin: 100px auto auto auto;
     width: 100px;
     height: 40px;
     background-color: #f4b5b5;
@@ -145,4 +259,14 @@ body {
 .start:hover {
     background-color: #FFFFFF;
     color: rgb(86%, 5%, 64%);
+}
+
+.ingame {
+    display: none;
+    color:lightskyblue;
+    width: 300px;
+    height: 40px;
+    font-size: 40px;
+    text-align: center;
+    margin:10px auto auto auto;
 }
