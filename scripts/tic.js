@@ -12,6 +12,16 @@ $(document).ready(function($) {
 	            if($(this).find('.innersquare').hasClass("xImage")){
 	                	$(this).find('.innersquare').removeClass('xImage');
 	            }
+
+	           	if($('.end-strike').hasClass("strike-show")){
+	                	$('.end-strike').removeClass('strike-show');
+	            }
+	            if($('.end-strike').hasClass("strike-show-left")){
+	                	$('.end-strike').removeClass('strike-show-left');
+	            }
+	           	if($('.end-strike').hasClass("strike-show-right")){
+	                	$('.end-strike').removeClass('strike-show-right');
+	            }
 			});
 		}
 	};
@@ -26,9 +36,8 @@ $(document).ready(function($) {
 			return;
 
 		var innersquare = $(this);
-		//var topLeftAcross = $('.topLeftAcross');
-		//topLeftAcross.toggleClass("strike-show");
-		//squareSelected.find('.innersquare').toggleClass("xImage");
+		var topLeftAcross = $('.topleftDown');
+		topLeftAcross.toggleClass("strike-show");
 		var squareSelected = innersquare.parent(".square");
 
 		if(globals.game.status === "running" && globals.game.currentState.turn === "X" && !squareSelected.hasClass('occupied')) {
@@ -47,7 +56,7 @@ $(document).ready(function($) {
 	$('.start').on('click', function(event) {
 		globals.isStarting = true;
 		globals.resetGame();
-		var aiPlayer = new AI('novice');
+		var aiPlayer = new AI('blind');
 	    globals.game = new Game(aiPlayer);
 	    aiPlayer.plays(globals.game);
 	    globals.game.start();
