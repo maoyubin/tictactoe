@@ -1,2 +1,2 @@
 # tictactoe
-This is a test case for Tic tac toe
+This is a test case for Tic tac toe that I implemented in the MiniMax algorithm. 
