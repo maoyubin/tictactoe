@@ -1,0 +1,127 @@
+body {
+    background-color: rgb(40%, 24%, 35%);
+}
+
+#board {
+    position: relative;
+    margin: 150px auto auto auto;
+    width: 360px;
+}
+
+.row {
+    clear: both;
+    overflow: hidden;
+}
+
+.square {
+    position: relative;
+    float: left;
+    width: 118px;
+    height: 118px;
+}
+
+.innersquare {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.xImage {
+    background-image: url(../imgs/X.png);
+    background-size:  50px;                    
+    background-repeat: no-repeat;
+    background-position: center center; 
+    -webkit-animation: slide-out-bck-center 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+    animation: slide-out-bck-center 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+}
+
+.oImage {
+    background-image: url(../imgs/O.png);
+    background-size:  50px;                    
+    background-repeat: no-repeat;
+    background-position: center center; 
+    -webkit-animation: slide-out-bck-center 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+    animation: slide-out-bck-center 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+}
+
+.bottom {
+    border-bottom: 2px solid rgb(67%, 46%, 61%);
+}
+
+.right {
+    border-right: 2px solid rgb(67%, 46%, 61%);
+}
+
+.end-strike {
+    position: absolute;
+    height: 4px;
+    background: rgb(86%, 5%, 64%);
+    opacity: 0;
+    transition: all .4s;
+    z-index: 10;
+}
+
+.end-strike.topLeftAcross {
+    width: 100%;
+    top: 16.5%;
+}
+
+.strike-show {
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+@-webkit-keyframes slide-out-bck-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px);
+            transform: translateZ(-1100px);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-bck-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px);
+            transform: translateZ(-1100px);
+    opacity: 0;
+  }
+}
