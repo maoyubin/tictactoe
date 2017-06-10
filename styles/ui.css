@@ -125,3 +125,24 @@ body {
     opacity: 0;
   }
 }
+
+.start {
+    position: relative;
+    margin: 40% auto 100px auto;
+    width: 100px;
+    height: 40px;
+    background-color: #f4b5b5;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: center;
+    line-height: 40px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.start:hover {
+    background-color: #FFFFFF;
+    color: rgb(86%, 5%, 64%);
+}

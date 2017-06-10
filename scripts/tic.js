@@ -1,15 +1,30 @@
 $(document).ready(function($) {
-	var globals = {};
+	var globals = {
+		resetGame : function(){
+			$( ".square" ).each(function() {
+				
+				if($(this).hasClass('occupied')){
+					$(this).removeClass('occupied');
+				}
+				if($(this).find('.innersquare').hasClass("oImage")){
+                	$(this).find('.innersquare').removeClass('oImage');
+	            }
+	            if($(this).find('.innersquare').hasClass("xImage")){
+	                	$(this).find('.innersquare').removeClass('xImage');
+	            }
+			});
+		}
+	};
 	//var aiPlayer = new AI('blind');
 	//var aiPlayer = new AI('master');
-	var aiPlayer = new AI('novice');
-    globals.game = new Game(aiPlayer);
-    aiPlayer.plays(globals.game);
-    globals.game.start();
-
-
+	
+    globals.isStarting = false;
 
 	$('.innersquare').on('click', function(event) {
+
+		if(!globals.isStarting)
+			return;
+
 		var innersquare = $(this);
 		//var topLeftAcross = $('.topLeftAcross');
 		//topLeftAcross.toggleClass("strike-show");
@@ -28,4 +43,15 @@ $(document).ready(function($) {
              globals.game.advanceTo(next);
          }
 	});
+
+	$('.start').on('click', function(event) {
+		globals.isStarting = true;
+		globals.resetGame();
+		var aiPlayer = new AI('novice');
+	    globals.game = new Game(aiPlayer);
+	    aiPlayer.plays(globals.game);
+	    globals.game.start();
+	});
+
+
 });
